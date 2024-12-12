@@ -1,4 +1,3 @@
-To make the guide GitHub-friendly, I'll structure it properly with Markdown syntax, which is widely supported in GitHub repositories for easy readability. Here's the transformed content:
 
 ---
 
@@ -168,14 +167,3 @@ Arrays and hashing are vital topics in programming that help in solving a wide v
 
 ---
 
-### Addendum
-
-You can refer to the official [NeetCode repository](https://github.com/NeetCode/NeetCode) for more problems and solutions related to Arrays and Hashing.
-
---- 
-
-### How to Use This Guide
-
-1. Copy the code and run it in your preferred Python environment.
-2. Study each solution and analyze the time and space complexity.
-3. Practice variations of these problems to further strengthen your understanding.
