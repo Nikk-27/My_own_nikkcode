@@ -1,9 +1,24 @@
+To enhance navigation within the file, I suggest including a Table of Contents (ToC) section at the start. This provides a clear structure for readers and allows for easy access to each section. Here's the modified content with the Table of Contents added and slight adjustments for better flow:
 
 ---
 
 # Mastering Arrays & Hashing: A Comprehensive Guide with Python Solutions
 
 Arrays and hashing are fundamental concepts in data structures and algorithms. Mastering these topics can significantly improve problem-solving skills, especially in coding interviews.
+
+---
+
+## Table of Contents
+
+1. [Introduction to Arrays & Hashing](#introduction-to-arrays--hashing)
+2. [Understanding Arrays & Hashing](#understanding-arrays--hashing)
+   - [Arrays](#arrays)
+   - [Hashing](#hashing)
+3. [Key Concepts in Arrays & Hashing](#key-concepts-in-arrays--hashing)
+4. [Common Patterns in Arrays & Hashing](#common-patterns-in-arrays--hashing)
+5. [Problem-Solving Using Arrays & Hashing: NeetCode Solutions](#problem-solving-using-arrays--hashing-neetcode-solutions)
+   - [217. Contains Duplicate](#217-contains-duplicate)
+6. [Conclusion](#conclusion)
 
 ---
 
@@ -166,4 +181,3 @@ class Solution:
 Arrays and hashing are vital topics in programming that help in solving a wide variety of problems efficiently. By understanding the core concepts, such as how arrays store elements and how hashing maps data, you can optimize your code and solve complex problems quickly. This guide, along with the solutions and time/space complexity analysis, will help you understand how to approach different kinds of problems related to arrays and hashing. By practicing these problems, you'll be able to build a solid foundation for your coding interviews and improve your problem-solving skills.
 
 ---
-
