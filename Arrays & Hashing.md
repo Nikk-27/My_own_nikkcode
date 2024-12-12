@@ -18,6 +18,8 @@ Arrays and hashing are fundamental concepts in data structures and algorithms. M
 4. [Common Patterns in Arrays & Hashing](#common-patterns-in-arrays--hashing)
 5. [Problem-Solving Using Arrays & Hashing: NeetCode Solutions](#problem-solving-using-arrays--hashing-neetcode-solutions)
    - [217. Contains Duplicate](#217-contains-duplicate)
+   - [242. Valid Anagram](#242-valid-anagram)
+
 6. [Conclusion](#conclusion)
 
 ---
@@ -173,6 +175,160 @@ class Solution:
 
 **Time Complexity**: \(O(n)\), where \(n\) is the number of elements in the array.  
 **Space Complexity**: \(O(n)\), because we are storing all unique elements in the set.
+
+---
+
+Sure! Here's the content added to the existing explanation for easier navigation:
+
+---
+
+## 242. Valid Anagram - Explanation
+
+### Problem Link
+[Valid Anagram Problem](https://leetcode.com/problems/valid-anagram/)
+
+### Description
+Given two strings `s` and `t`, return `true` if the two strings are anagrams of each other, otherwise return `false`.
+
+An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
+### Example 1:
+**Input**:  
+```python
+s = "racecar", t = "carrace"
+```
+**Output**:  
+```python
+True
+```
+
+### Example 2:
+**Input**:  
+```python
+s = "jar", t = "jam"
+```
+**Output**:  
+```python
+False
+```
+
+### Constraints:
+- `s` and `t` consist of lowercase English letters.
+
+### Recommended Time & Space Complexity
+
+---
+
+## Approaches for Solution
+
+### 1. **Sorting**
+
+**Approach**:  
+The first approach is to sort both strings `s` and `t` and then compare the sorted versions of the strings. If both strings are anagrams, they will become identical once sorted.
+
+**Solution Code**:
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+            
+        return sorted(s) == sorted(t)
+```
+
+**Explanation**:  
+- We first check if the lengths of `s` and `t` are the same. If not, we can return `False` immediately, as anagrams must have the same length.
+- Then we sort both strings and compare them. If they are equal, the strings are anagrams; otherwise, they are not.
+
+**Time & Space Complexity**:
+- **Time Complexity**:  
+  \( O(n \log n + m \log m) \), where `n` is the length of string `s` and `m` is the length of string `t`. Sorting each string takes \( O(n \log n) \) and \( O(m \log m) \) time respectively.
+  
+- **Space Complexity**:  
+  \( O(1) \) or \( O(n + m) \), depending on the sorting algorithm. Most algorithms like Python's Timsort use \( O(n) \) extra space, but the theoretical space complexity is \( O(1) \) for in-place sorting.
+
+---
+
+### 2. **Hash Table**
+
+**Approach**:  
+In this approach, we use two hash tables (dictionaries) to store the frequency of each character in both strings. If both hash tables are identical, then the strings are anagrams.
+
+**Solution Code**:
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        countS, countT = {}, {}
+
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
+```
+
+**Explanation**:  
+- We first check if the lengths of `s` and `t` are the same. If not, we return `False`.
+- We initialize two empty hash tables `countS` and `countT`. As we iterate through both strings, we update the frequency count of each character in their respective tables.
+- Finally, we compare the two hash tables. If they are equal, the strings are anagrams; otherwise, they are not.
+
+**Time & Space Complexity**:
+- **Time Complexity**:  
+  \( O(n + m) \), where `n` and `m` are the lengths of strings `s` and `t`. We iterate through each string once to populate the hash tables.
+  
+- **Space Complexity**:  
+  \( O(1) \), as the maximum number of different characters is limited to 26 (lowercase English letters). Therefore, the space complexity is constant.
+
+---
+
+### 3. **Hash Table (Optimal)**
+
+**Approach**:  
+This approach uses a single hash table to count the character frequencies in both strings. We update the counts in one pass and check if all counts are zero.
+
+**Solution Code**:
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        count = [0] * 26  # 26 English lowercase letters
+        for i in range(len(s)):
+            count[ord(s[i]) - ord('a')] += 1
+            count[ord(t[i]) - ord('a')] -= 1
+
+        for val in count:
+            if val != 0:
+                return False
+        return True
+```
+
+**Explanation**:  
+- We first check if the lengths of `s` and `t` are the same. If they are not, we return `False`.
+- We use a list `count` of size 26 to track the frequency of characters in both strings. For each character in `s`, we increment its count, and for each character in `t`, we decrement its count.
+- After processing both strings, if all values in `count` are zero, the strings are anagrams. Otherwise, they are not.
+
+**Time & Space Complexity**:
+- **Time Complexity**:  
+  \( O(n + m) \), where `n` and `m` are the lengths of strings `s` and `t`. We process each string once.
+  
+- **Space Complexity**:  
+  \( O(1) \), as we are only using a fixed-size array of length 26 for storing character counts.
+
+---
+
+## Conclusion
+
+There are multiple ways to solve the **Valid Anagram** problem. Each approach has different time and space complexities:
+
+- **Sorting**: Simple but less efficient in terms of time complexity due to sorting.
+- **Hash Table**: More efficient as it counts frequencies, but requires two hash tables.
+- **Optimal Hash Table**: The most efficient approach in terms of space and time, using a single array to count characters.
+
+Understanding these solutions and their complexities will help you pick the best approach based on the constraints and size of the problem.
 
 ---
 
