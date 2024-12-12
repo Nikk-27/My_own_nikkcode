@@ -182,7 +182,7 @@ Sure! Here's the content added to the existing explanation for easier navigation
 
 ---
 
-## 242. Valid Anagram - Explanation
+### 242. Valid Anagram
 
 ### Problem Link
 [Valid Anagram Problem](https://leetcode.com/problems/valid-anagram/)
